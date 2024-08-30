@@ -34,8 +34,11 @@ The script is about printing on the terminal info about a provided text file ( s
     Improving the DX - if nothing specified - the default
     would behave as the base assignment. 
     <ul>
-      <li>handling commands arguments ( filepath?, words? )</li>
-      <li>handling prompt entries ( filepath?, words? )</li>
+      <li>accepting words retrieval to search occurence in document</li>
+      <ul>
+        <li>handling commands arguments ( filepath?, words? )</li>
+        <li>handling prompt entries ( filepath?, words? )</li>
+      </ul>
     </ul>
   </details>
 
