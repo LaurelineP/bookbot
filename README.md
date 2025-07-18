@@ -28,9 +28,15 @@ The script is about printing on the terminal info about a provided text file ( s
       <li>letter occurrence</li>
     </ul>
   </details>
+  
+
+
 
   <details>
-    <summary>&nbsp;&nbsp;&nbsp; <h2>Extra</h2> </summary>
+    <summary>&nbsp;&nbsp;&nbsp; <h2>Extra</h2>
+    
+  <video src="https://github.com/user-attachments/assets/430ed682-ff2b-4869-a5ff-ff341fa8765d" alt="Demo preview CLI and extras"></video>
+    </summary>
     Improving the DX - if nothing specified - the default
     would behave as the base assignment. 
     <ul>
