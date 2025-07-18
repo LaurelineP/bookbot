@@ -1,4 +1,6 @@
 # Bookbot
+BookBot is my first [Boot.dev](https://www.boot.dev) project! 
+
 Script to analyze an entire book and generate a printed report
 with some insights  
 ![My Skills](https://skillicons.dev/icons?i=python)
