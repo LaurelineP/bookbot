@@ -21,11 +21,13 @@ IS_DEFAULT_RUN = True
 
 def main():
     try:
-        should_prompt = handle_arguments_customization()
-        if should_prompt:
-            words = prompt_user()
-            report = generate_report(FILEPATH, words)
-            print(f'{report}')
+        # should_prompt = handle_arguments_customization()
+        #if should_prompt:
+            #words = prompt_user()
+            #report = generate_report(FILEPATH, words)
+            #print(f'{report}')
+        report = generate_report(FILEPATH)
+        print(f'{report}')
     except KeyboardInterrupt:
         print('\nExecution interrupted. Ending Program.')
         sys.exit(0)
@@ -55,6 +57,7 @@ def get_file_text(filepath: str) -> str:
 # Execution example: "python main.py will prompt
 #
 ################################################################################
+from stats import count_words, count_characters, find_words_occurrences, sort_on;
 def prompt_user() -> list:
     """ Prompt User for
     - a filepath
@@ -118,50 +121,7 @@ def handle_arguments_customization() -> bool:
 
 # ------------------------------ CONTENT RELATED ----------------------------- #
 
-
-def count_words(content: str) -> int:
-    """ Count words in text
-    Returns total count of words
-    """
-    return len(content.split())
-
-
-def count_characters(content: str) -> dict:
-    """ Counts characters and store the details of each
-       Returns a dictionary { "name": str, "value": int }
-    """
-    characters = {}
-    for char in content:
-        char = char.lower()
-        if char == '':
-            char = '_space_'
-        if char not in characters:
-            characters[char] = 0
-        characters[char] += 1
-
-    return characters
-
-
-def find_words_occurrences(words: list, content: str) -> dict | None:
-    """ Find words occurrences in the text """
-    requested_words = {}
-    for word in words:
-        if word not in requested_words:
-            requested_words[word] = 0
-
-    content_words = content.split()
-    for content_word in content_words:
-        if content_word in requested_words:
-            requested_words[content_word] += 1
-    return requested_words if len(requested_words) else None
-
-
-def sort_on(obj):
-    """ Returns an object value """
-    return obj[1]
-
-
-def generate_report(filepath: str, searched_words: list) -> str:
+def generate_report(filepath: str, searched_words: list = []) -> str:
     """ Generates a printable report:
             - The book file path
             - Count of total words within the document
