@@ -17,16 +17,25 @@ IS_DEFAULT_RUN = True
 # - Prompt inputs entries from user
 #
 ################################################################################
+def handleExpectedBookArg():
+    argv_count = len(sys.argv)
+    if argv_count != 2:
+        print('Usage: python3 main.py <path_to_book>')
+        sys.exit(1)
+    return sys.argv[1]
+
 
 
 def main():
     try:
+        arg_filepath = handleExpectedBookArg()
+        print(arg_filepath)
         # should_prompt = handle_arguments_customization()
         #if should_prompt:
             #words = prompt_user()
             #report = generate_report(FILEPATH, words)
             #print(f'{report}')
-        report = generate_report(FILEPATH)
+        report = generate_report(arg_filepath or FILEPATH)
         print(f'{report}')
     except KeyboardInterrupt:
         print('\nExecution interrupted. Ending Program.')
@@ -171,7 +180,7 @@ def generate_report(filepath: str, searched_words: list = []) -> str:
         char = character_details[0]
         if char.isalpha():
             value = character_details[1]
-            report += f"\n\tThe '{char}' character was found {value} times"
+            report += f"\n\tThe '{char}' character was found {value} times - \t[ {char}: {value} ]"
     report += '\n\n'
     return report
 
